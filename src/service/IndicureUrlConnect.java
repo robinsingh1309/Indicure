@@ -6,7 +6,7 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-public class IndicureUrlConnection {
+public class IndicureUrlConnect {
 	
 	public Document getUrlConnect(String webUrl) throws IOException 
 	{

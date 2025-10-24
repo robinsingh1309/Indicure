@@ -10,19 +10,19 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import service.IndicureUrlConnection;
+import service.IndicureUrlConnect;
 import url.IndicureUrl;
 
 public class Hospitals {
 
-    private final String indicureUrl = IndicureUrl.INDIDURE_URL.getValue();
-    private IndicureUrlConnection urlConnection;
+    private final String indicureUrl = IndicureUrl.INDICURE_URL.getValue();
+    private IndicureUrlConnect urlConnection;
     
-    private final String filePathToStoreHospitalsUrls = "/home/robin/eclipse-workspace/Indicure/csv/data/%s.csv";
+    private final String filePathToStoreHospitalsUrls = "/home/robin/eclipse-workspace/Indicure/csv/hospital_data/%s.csv";
     private Logger logger = Logger.getLogger(Hospitals.class.getName());
     
     public Hospitals() {
-        this.urlConnection = new IndicureUrlConnection();
+        this.urlConnection = new IndicureUrlConnect();
     }
     
     public void extractHospitalsData() {

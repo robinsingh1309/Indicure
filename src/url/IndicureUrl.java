@@ -2,7 +2,7 @@ package url;
 
 public enum IndicureUrl {
 
-	INDIDURE_URL("https://www.indicure.com");
+	INDICURE_URL("https://www.indicure.com");
 	
 	private String url;
 	

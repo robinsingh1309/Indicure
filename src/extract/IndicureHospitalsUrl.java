@@ -8,19 +8,19 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import service.IndicureUrlConnection;
+import service.IndicureUrlConnect;
 import url.IndicureUrl;
 
 public class IndicureHospitalsUrl {
 
-	private final String indicureUrl = IndicureUrl.INDIDURE_URL.getValue();
-	private IndicureUrlConnection urlConnection;
+	private final String indicureUrl = IndicureUrl.INDICURE_URL.getValue();
+	private IndicureUrlConnect urlConnection;
 	
 	private final String filePathToStoreHospitalsUrls = "/home/robin/eclipse-workspace/Indicure/csv/hospitalsCategoryUrls.csv";
 	private Logger logger = Logger.getLogger(IndicureHospitalsUrl.class.getName());
 	
 	public IndicureHospitalsUrl() {
-		this.urlConnection = new IndicureUrlConnection();
+		this.urlConnection = new IndicureUrlConnect();
 	}
 	
 	
