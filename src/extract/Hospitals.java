@@ -42,7 +42,8 @@ public class Hospitals {
                 
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName))) {
                     
-                    writer.write("HospitalName,Speciality,HospitalImage,Location\n");
+                    writer.write("HospitalName,Speciality,HospitalImage,Location,Description");
+                    writer.newLine();
                     
                     Document htmlDocument = urlConnection.getUrlConnect(line);
                     logger.info("Parsing HTML for: " + line);
@@ -56,7 +57,16 @@ public class Hospitals {
                         String hospitalImage = indicureUrl + element.select(".bg-grey.rleft.text-center > img").attr("src");
                         String hospitalLocation = element.select(".city").text();
                         
-                        writer.write("\"" + hospitalName + "\",\"" + speciality + "\",\"" + hospitalImage + "\",\"" + hospitalLocation + "\"\n");
+                        Elements hospitalDescElements = element.select(".medical__body div.bg-grey.rright p.mt20");
+                        StringBuilder hospitalDescBuilder = new StringBuilder();
+                        
+                        for(Element descElement : hospitalDescElements) 
+                        {
+                            hospitalDescBuilder.append(descElement.text());
+                        }
+                        
+                        writer.write("\"" + hospitalName + "\",\"" + speciality + "\",\"" + hospitalImage + "\",\"" + hospitalLocation + "\",\""  + hospitalDescBuilder.toString() + "\"");
+                        writer.newLine();
                     }
                     
                 } catch (Exception e) {
