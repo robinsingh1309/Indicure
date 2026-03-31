@@ -43,6 +43,7 @@ public class Hospitals {
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName))) {
                     
                     writer.write("HospitalName,Speciality,HospitalImage,Location,Description");
+                    
                     writer.newLine();
                     
                     Document htmlDocument = urlConnection.getUrlConnect(line);
